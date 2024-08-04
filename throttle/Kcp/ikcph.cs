@@ -126,7 +126,7 @@ namespace KCP
         public const uint INTERVAL = 100;
         public const uint INTERVAL_MIN = 1;
         public const uint INTERVAL_LIMIT = 5000;
-        public const uint OVERHEAD = 14;
+        public const uint OVERHEAD = 10;
         public const uint DEADLINK = 20;
         public const uint THRESH_INIT = 2;
         public const uint THRESH_MIN = 2;
@@ -149,6 +149,7 @@ namespace KCP
         public const uint OUT_ACK = 512;
         public const uint OUT_PROBE = 1024;
         public const uint OUT_WINS = 2048;
+        public const uint REVERSED_OVERHEAD = 10;
         public const uint REVERSED_HEAD = 0;
     }
 }
