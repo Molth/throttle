@@ -676,7 +676,7 @@ namespace KCP
                             }
                         }
 
-                        break;
+                        continue;
                     case (byte)CMD_PUSH:
                         if (size < 13)
                             goto label;
@@ -707,12 +707,12 @@ namespace KCP
                         }
 
                         data += len;
-                        break;
+                        continue;
                     case (byte)CMD_WASK:
                         kcp->probe |= ASK_TELL;
-                        break;
+                        continue;
                     case (byte)CMD_WINS:
-                        break;
+                        continue;
                     default:
                         return -3;
                 }
