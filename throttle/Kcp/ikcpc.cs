@@ -639,6 +639,7 @@ namespace KCP
             data = ikcp_decode32u(data, &una);
             kcp->rmt_wnd = wnd;
             ikcp_parse_una(kcp, una);
+            ikcp_shrink_buf(kcp);
             while (true)
             {
                 if (size < 1)
@@ -647,7 +648,6 @@ namespace KCP
                 uint sn;
                 data = ikcp_decode8u(data, &cmd);
                 size--;
-                ikcp_shrink_buf(kcp);
                 switch (cmd)
                 {
                     case (byte)CMD_ACK:
