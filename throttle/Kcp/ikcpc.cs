@@ -128,7 +128,7 @@ namespace KCP
         {
             if (size == 0)
                 return;
-            output(data - (int)REVERSED_HEAD - 10, size + (int)REVERSED_HEAD + 10);
+            output(data - (int)REVERSED_HEAD - (int)REVERSED_OVERHEAD, size + (int)REVERSED_HEAD + (int)REVERSED_OVERHEAD);
         }
 
         public static IKCPCB* ikcp_create()
@@ -624,10 +624,10 @@ namespace KCP
 
         public static int ikcp_input(IKCPCB* kcp, byte* data, int size)
         {
-            if (data == null || size < (int)REVERSED_HEAD + 10)
+            if (data == null || size < (int)REVERSED_HEAD + (int)REVERSED_OVERHEAD)
                 return -1;
             data += (int)REVERSED_HEAD;
-            size -= (int)REVERSED_HEAD + 10;
+            size -= (int)REVERSED_HEAD + (int)REVERSED_OVERHEAD;
             var prev_una = kcp->snd_una;
             uint maxack = 0, latest_ts = 0;
             var flag = 0;
